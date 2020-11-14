@@ -26,7 +26,10 @@ let voice = voices[voiceIdx].name;
 let voiceObj = voices[voiceIdx];
 
 setInterval(() => {
-  voiceIdx = Math.floor(Math.random() * voices.length);
+  let lastLanguage = voiceObj.language;
+  while (voices[voiceIdx].language === lastLanguage) {
+    voiceIdx = Math.floor(Math.random() * voices.length);
+  }
   voice = voices[voiceIdx].name;
   voiceObj = voices[voiceIdx];
   console.log(voiceObj.language)
