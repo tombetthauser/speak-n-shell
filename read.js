@@ -43,8 +43,7 @@ process.stdin.on('keypress', (str, key) => {
   if (key.ctrl && key.name === 'c') {
     process.exit();
   } else {
-    console.log(`${str.toUpperCase()}`);
-    // exec(`say -v "${voices[10].name}" ${str}`, (error, stdout, stderr) => {
+    console.log(`${str.toUpperCase() + str.toLowerCase()}`);
     exec(`say -v "${voice}" ${str}`, (error, stdout, stderr) => {
       if (error) {
         return;
