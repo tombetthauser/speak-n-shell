@@ -1,3 +1,11 @@
+const switchTime = 2000;
+const greeting = "Hello Danny, lets try typing some "
+const switchPhrases = [
+  "Now lets try some ",
+  "Lets change to ",
+  "How about some ",
+]
+
 const readline = require('readline');
 const { exec } = require("child_process");
 const voices = [
@@ -22,15 +30,9 @@ setInterval(() => {
   voice = voices[voiceIdx].name;
   voiceObj = voices[voiceIdx];
   console.log(voiceObj.language)
-  exec(`say ${voiceObj.language}`, (error, stdout, stderr) => {
-    if (error) {
-      return;
-    }
-    if (stderr) {
-      return;
-    }
-  });
-}, 2000)
+  let randomPhrase = switchPhrases[Math.floor(Math.random() * switchPhrases.length)]
+  exec(`say -v "${voice}" ${randomPhrase} ${voiceObj.language}`, (e, _stdout, _stderr) => e ? undefined : undefined);
+}, switchTime)
 
 readline.emitKeypressEvents(process.stdin);
 process.stdin.setRawMode(true);
@@ -50,4 +52,5 @@ process.stdin.on('keypress', (str, key) => {
     });
   }
 });
-console.log('Press any key...');
+console.log(voiceObj.language);
+exec(`say ${greeting} ${voiceObj.language}`, (e, _stdout, _stderr) => e ? undefined : undefined);
