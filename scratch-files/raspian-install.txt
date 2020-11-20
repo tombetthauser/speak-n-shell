@@ -1,1 +1,4 @@
 sudo dd bs=1m if=Users/tombetthauser/Downloads/2020-11-17-raspian.img of=/dev/rdisk2
+
+Note that 'say' wont work on ubuntu, 'spd-say' seems like an easy switch to make and can be found here
+http://manpages.ubuntu.com/manpages/trusty/man1/spd-say.1.html
