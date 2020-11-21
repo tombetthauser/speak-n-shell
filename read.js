@@ -70,3 +70,20 @@ process.stdin.on('keypress', (str, key) => {
 });
 console.log(voiceObj.language);
 exec(`say ${greeting} ${voiceObj.language}`, (e, _stdout, _stderr) => e ? undefined : undefined);
+
+
+
+
+/*
+
+  Ideal flow...
+    (commands locked)
+    1. Hello Danny, Hola Danny
+       Lets try typing with Spanish
+       Nosotros typemiento en español
+       Please select a letter
+       Por favor selectar un letero
+
+    (commands unlock)
+    2. A letter is 
+*/
