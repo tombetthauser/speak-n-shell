@@ -1,0 +1,23 @@
+{
+  "name": "speak-n-shell",
+  "version": "1.0.0",
+  "description": "",
+  "main": "read.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tombetthauser/speak-n-shell.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tombetthauser/speak-n-shell/issues"
+  },
+  "homepage": "https://github.com/tombetthauser/speak-n-shell#readme",
+  "dependencies": {
+    "translate": "^1.1.2"
+  }
+}
