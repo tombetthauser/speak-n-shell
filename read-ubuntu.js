@@ -160,7 +160,7 @@ process.stdin.on('keypress', (str, key) => {
     } else {
       console.log(`${str.toUpperCase() + str.toLowerCase()}`);
     }
-    exec(`say -v "${voice}" ${str}`, (error, stdout, stderr) => {
+    exec(`echo ${str} | espeak`, (error, stdout, stderr) => {
       if (error) {
         return;
       }
