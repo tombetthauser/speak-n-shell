@@ -1,6 +1,5 @@
-const fullscreen = "wmctrl -r ':ACTIVE:' -b toggle,fullscreen";
-const switchTime = undefined;
-const greeting = "Hello Danny"
+const switchTime = 5000;
+const greeting = "Hello Danny, lets try typing some "
 const switchPhrases = [
   "Now lets try some ",
   "Lets change to ",
@@ -136,19 +135,17 @@ let voiceIdx = Math.floor(Math.random() * voices.length);
 let voice = voices[voiceIdx].name;
 let voiceObj = voices[voiceIdx];
 
-// setInterval(() => {
-//  let lastLanguage = voiceObj.language;
-//  while (voices[voiceIdx].language === lastLanguage) {
-//    voiceIdx = Math.floor(Math.random() * voices.length);
-//  }
-//  voice = voices[voiceIdx].name;
-//  voiceObj = voices[voiceIdx];
-//  console.log(voiceObj.language)
-//  let randomPhrase = switchPhrases[Math.floor(Math.random() * switchPhrases.length)]
-//  exec(`say -v "${voice}" ${voiceObj.phrase}`, (e, _stdout, _stderr) => e ? undefined : undefined);
-//  exec(`echo ${voiceObj.phrase} | espeak`, (e, _stdout, _stderr) => e ? undefined : undefined);
-
-//}, switchTime)
+setInterval(() => {
+  let lastLanguage = voiceObj.language;
+  while (voices[voiceIdx].language === lastLanguage) {
+    voiceIdx = Math.floor(Math.random() * voices.length);
+  }
+  voice = voices[voiceIdx].name;
+  voiceObj = voices[voiceIdx];
+  console.log(voiceObj.language)
+  let randomPhrase = switchPhrases[Math.floor(Math.random() * switchPhrases.length)]
+  exec(` "${voice}" ${voiceObj.phrase}`, (e, _stdout, _stderr) => e ? undefined : undefined);
+}, switchTime)
 
 readline.emitKeypressEvents(process.stdin);
 process.stdin.setRawMode(true);
@@ -161,7 +158,7 @@ process.stdin.on('keypress', (str, key) => {
     } else {
       console.log(`${str.toUpperCase() + str.toLowerCase()}`);
     }
-    exec(`echo ${str} | espeak`, (error, stdout, stderr) => {
+    exec(`say -v "${voice}" ${str}`, (error, stdout, stderr) => {
       if (error) {
         return;
       }
@@ -171,10 +168,8 @@ process.stdin.on('keypress', (str, key) => {
     });
   }
 });
-//console.log(voiceObj.language);
-//exec(`say ${greeting} ${voiceObj.language}`, (e, _stdout, _stderr) => e ? undefined : undefined);
-exec(`${greeting}`, (e, _stdout, _stderr) => e ? undefined : undefined);
-exec(`${fullscreen}`, (e, _stdout, _stderr) => e ? undefined : undefined);
+console.log(voiceObj.language);
+exec(`say ${greeting} ${voiceObj.language}`, (e, _stdout, _stderr) => e ? undefined : undefined);
 
 
 
