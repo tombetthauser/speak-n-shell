@@ -1,4 +1,4 @@
-const switchTime = 5000;
+const switchTime = undefined;
 const greeting = "Hello Danny, lets try typing some "
 const switchPhrases = [
   "Now lets try some ",
@@ -135,19 +135,19 @@ let voiceIdx = Math.floor(Math.random() * voices.length);
 let voice = voices[voiceIdx].name;
 let voiceObj = voices[voiceIdx];
 
-setInterval(() => {
-  let lastLanguage = voiceObj.language;
-  while (voices[voiceIdx].language === lastLanguage) {
-    voiceIdx = Math.floor(Math.random() * voices.length);
-  }
-  voice = voices[voiceIdx].name;
-  voiceObj = voices[voiceIdx];
-  console.log(voiceObj.language)
-  let randomPhrase = switchPhrases[Math.floor(Math.random() * switchPhrases.length)]
+// setInterval(() => {
+//  let lastLanguage = voiceObj.language;
+//  while (voices[voiceIdx].language === lastLanguage) {
+//    voiceIdx = Math.floor(Math.random() * voices.length);
+//  }
+//  voice = voices[voiceIdx].name;
+//  voiceObj = voices[voiceIdx];
+//  console.log(voiceObj.language)
+//  let randomPhrase = switchPhrases[Math.floor(Math.random() * switchPhrases.length)]
 //  exec(`say -v "${voice}" ${voiceObj.phrase}`, (e, _stdout, _stderr) => e ? undefined : undefined);
-  exec(`echo ${voiceObj.phrase} | espeak`, (e, _stdout, _stderr) => e ? undefined : undefined);
+//  exec(`echo ${voiceObj.phrase} | espeak`, (e, _stdout, _stderr) => e ? undefined : undefined);
 
-}, switchTime)
+//}, switchTime)
 
 readline.emitKeypressEvents(process.stdin);
 process.stdin.setRawMode(true);
