@@ -170,7 +170,7 @@ process.stdin.on('keypress', (str, key) => {
     });
   }
 });
-console.log(voiceObj.language);
+//console.log(voiceObj.language);
 //exec(`say ${greeting} ${voiceObj.language}`, (e, _stdout, _stderr) => e ? undefined : undefined);
 exec(`${greeting}`, (e, _stdout, _stderr) => e ? undefined : undefined);
 
