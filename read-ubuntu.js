@@ -1,5 +1,5 @@
 const switchTime = undefined;
-const greeting = "Hello Danny, lets try typing some "
+const greeting = "Hello Danny"
 const switchPhrases = [
   "Now lets try some ",
   "Lets change to ",
@@ -171,7 +171,8 @@ process.stdin.on('keypress', (str, key) => {
   }
 });
 console.log(voiceObj.language);
-exec(`say ${greeting} ${voiceObj.language}`, (e, _stdout, _stderr) => e ? undefined : undefined);
+//exec(`say ${greeting} ${voiceObj.language}`, (e, _stdout, _stderr) => e ? undefined : undefined);
+exec(`${greeting}`, (e, _stdout, _stderr) => e ? undefined : undefined);
 
 
 
