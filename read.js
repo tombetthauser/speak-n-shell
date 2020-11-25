@@ -106,6 +106,8 @@ const letterPhrases = [
     }
 ]
 
+// lecture after lunch -- 3 hours assessment
+
 const languageSwitchPhrases = {
   english: "Now lets try some english",
   japanese: "日本語でタイプしましょう",
@@ -118,6 +120,17 @@ const languageSwitchPhrases = {
 
 const readline = require('readline');
 const { exec } = require("child_process");
+
+const voicesDict = {  
+  English: { name: "Fred", language: "English", phrase: "Now lets try some english" }, 
+  Japanese: { name: "Kyoko", language: "Japanese", phrase: "日本語でタイプしましょう"}, 
+  Spanish: { name: "Diego", language: "Spanish", phrase: "escriba en español"}, 
+  Chinese: { name: "Mei-Jia", language: "Chinese", phrase: "让我们输入中文"}, 
+  French: { name: "Thomas", language: "French", phrase: "tapons en français"}, 
+  German: { name: "Anna", language: "German", phrase: "Lassen Sie uns Deutsch eingeben"}, 
+  Italian: { name: "Alice", language: "Italian", phrase: "digitiamo in italiano"},
+};
+
 const voices = [
   { name: "Samantha", language: "English", phrase: "Now lets try some english" }, 
   { name: "Tessa", language: "English", phrase: "Now lets try some english" }, 
