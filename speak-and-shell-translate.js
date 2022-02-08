@@ -3,10 +3,15 @@ const { exec } = require("child_process");
 
 const { translate } = require('free-translate');
 
-const englishVoices = ["Samantha", "Tessa", "Fred", "Alex", "Daniel"];
+// const englishVoices = ["Samantha", "Tessa", "Fred", "Alex", "Daniel"];
+const englishVoices = ["Alex"];
 const randEnglishVoice = () => englishVoices[Math.floor(Math.random() * englishVoices.length)];
 
 const languageTable = {
+  korean: {
+    voice: "Yuna",
+    abbreviation: "ko"
+  },
   japanese: {
     voice: "Kyoko",
     abbreviation: "ja"
@@ -44,10 +49,10 @@ const languageTable = {
   const voice = languageTable[randLang].voice
   const englishVoice = randEnglishVoice();
 
-  const number = Math.floor(Math.random() * 256);
+  const number = Math.floor(Math.random() * 26);
   const word = randWord();
 
-  phrase = Math.random() < .5 ? number : word;
+  phrase = Math.random() < .3 ? number : word;
 
   const translatedText = await translate(phrase, { from: 'en', to: abbrev });
 
